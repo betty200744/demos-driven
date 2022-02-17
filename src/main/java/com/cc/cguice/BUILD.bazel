@@ -1,0 +1,15 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+java_library(
+    name = "java-maven-lib",
+    srcs = glob(["*.java"]),
+    deps = [
+        "@maven//:com_google_inject_guice",
+    ],
+)
+
+java_binary(
+    name = "cguice",
+    main_class = "com.cc.cguice.Main",
+    runtime_deps = [":java-maven-lib"],
+)

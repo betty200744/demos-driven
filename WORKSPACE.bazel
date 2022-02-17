@@ -30,6 +30,7 @@ maven_install(
         "com.amazonaws:aws-java-sdk:1.12.112",
         "com.amazonaws:aws-java-sdk-dynamodb:1.12.112",
         "com.google.code.gson:gson:2.8.9",
+        "com.google.inject:guice:5.1.0",
     ],
     repositories = [
         "https://maven.aliyun.com/repository/public",
