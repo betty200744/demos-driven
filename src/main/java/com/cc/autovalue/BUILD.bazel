@@ -1,0 +1,57 @@
+#load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+java_library(
+    name = "javax_annotation_api",
+    visibility = ["//visibility:public"],
+    exports = [
+        "@maven//:javax_annotation_javax_annotation_api",
+    ],
+    runtime_deps = [
+    ],
+)
+
+java_library(
+    name = "autovalue",
+    exported_plugins = [
+        ":autovalue_plugin",
+    ],
+    exports = [
+        "@maven//:com_google_auto_value_auto_value",
+        "@maven//:com_google_auto_value_auto_value_annotations",
+    ],
+)
+
+java_plugin(
+    name = "autovalue_plugin",
+    processor_class = "com.google.auto.value.processor.AutoValueProcessor",
+    deps = [
+        ":javax_annotation_api",
+        "@maven//:com_google_auto_value_auto_value",
+    ],
+)
+
+java_library(
+    name = "java-maven-lib",
+    srcs = glob([
+        "*.java",
+    ]),
+    deps = [
+        ":autovalue",
+        "@maven//:com_fasterxml_jackson_core_jackson_annotations",
+        "@maven//:com_fasterxml_jackson_core_jackson_core",
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+        "@maven//:com_fasterxml_jackson_dataformat_jackson_dataformat_xml",
+        "@maven//:com_google_auto_value_auto_value",
+        "@maven//:com_google_auto_value_auto_value_annotations",
+        "@maven//:com_google_auto_value_auto_value_parent",
+        "@maven//:com_google_code_gson_gson",
+    ],
+)
+
+java_binary(
+    name = "app",
+    main_class = "com.cc.autovalue.Main",
+    runtime_deps = [
+        ":java-maven-lib",
+    ],
+)
