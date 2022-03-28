@@ -1,9 +1,9 @@
-package com.cc.gguice;
+package com.cc.guice.printer;
 
 import com.google.inject.AbstractModule;
 
 public class PrinterModule extends AbstractModule {
-    // configure,  bind Printer to myPrinter instance
+    // instance Bindings
     @Override
     protected void configure() {
         Printer myPrinter = new PrinterImpl();

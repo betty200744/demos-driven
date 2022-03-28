@@ -1,9 +1,10 @@
-package com.cc.cguice;
+package com.cc.guice.animal;
 
 import com.google.inject.AbstractModule;
 
 public class AnimalModule extends AbstractModule {
     protected void configure() {
-        bind(AnimalService.class).to(CatServiceImpl.class);
+        // instance Bindings
+        bind(Animal.class).to(CatServiceImpl.class);
     }
 }

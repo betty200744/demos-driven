@@ -1,0 +1,18 @@
+#load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+java_library(
+    name = "java-maven-lib",
+    srcs = glob([
+        "*.java",
+    ]),
+    deps = [
+        "@maven//:com_google_code_gson_gson",
+        "@maven//:com_google_inject_guice",
+    ],
+)
+
+java_binary(
+    name = "gson_demo",
+    main_class = "com.cc.gson.Main",
+    runtime_deps = [":java-maven-lib"],
+)

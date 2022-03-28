@@ -1,12 +1,10 @@
-package com.cc.gguice;
+package com.cc.guice.printer;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 
 public class MessageModule extends AbstractModule {
-    // MessageModule that provides bindings for message
-    // @Provides, to specify the dependencies
-    // @Message
+    // Provider Bindings with @Message annotations
     @Provides
     @Message
     String provideMessage() {

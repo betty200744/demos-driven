@@ -1,16 +1,14 @@
-package com.cc.cguice;
+package com.cc.guice.animal;
 
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
         System.out.println("this is compass juice demo~~");
-        // injector with module, module that bind CatServiceImpl
         Injector injector = Guice.createInjector(new AnimalModule());
-        // injector get instance
-        AnimalService animalService = injector.getInstance(AnimalService.class);
-        animalService.jump();
+        Animal animal = injector.getInstance(Animal.class);
+        animal.jump();
     }
 }

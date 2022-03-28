@@ -1,6 +1,6 @@
-package com.cc.cguice;
+package com.cc.guice.animal;
 
-public class CatServiceImpl implements AnimalService {
+public class CatServiceImpl implements Animal {
 
     @Override
     public void jump() {

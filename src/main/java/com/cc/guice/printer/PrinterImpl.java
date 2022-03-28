@@ -1,4 +1,4 @@
-package com.cc.gguice;
+package com.cc.guice.printer;
 
 public class PrinterImpl implements Printer {
     @Override

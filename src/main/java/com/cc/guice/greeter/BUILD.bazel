@@ -5,11 +5,12 @@ java_library(
     srcs = glob(["*.java"]),
     deps = [
         "@maven//:com_google_inject_guice",
+        "@maven//:javax_inject_javax_inject_1",
     ],
 )
 
 java_binary(
-    name = "cguice",
-    main_class = "com.cc.cguice.Main",
+    name = "greeter",
+    main_class = "com.cc.guice.greeter.App",
     runtime_deps = [":java-maven-lib"],
 )
