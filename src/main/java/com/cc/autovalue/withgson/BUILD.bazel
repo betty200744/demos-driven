@@ -49,8 +49,8 @@ java_library(
 )
 
 java_binary(
-    name = "app",
-    main_class = "com.cc.autovalue.Main",
+    name = "hellostory",
+    main_class = "com.cc.autovalue.withgson.Main",
     runtime_deps = [
         ":java-maven-lib",
     ],
