@@ -1,23 +1,36 @@
 package com.cc.gson;
 
+import com.google.auto.value.AutoValue;
+
 /*
  * Review
  * */
-public class Review {
-    private String title;
-    private int price;
-
-    public Review(String title, int price) {
-        this.title = title;
-        this.price = price;
+@AutoValue
+public abstract class Review {
+    public abstract String title();
+    
+    public abstract int price();
+    
+    public Review() {
     }
-
-    public void detail() {
-        System.out.println(this.title + ", price is " + this.price);
+    
+    public static Review create(String title, int price) {
+        return builder()
+            .price(price)
+            .title(title)
+            .build();
     }
-
-    public int getPrice() {
-        return this.price;
+    
+    public static Builder builder() {
+        return new AutoValue_Review.Builder();
     }
-
+    
+    @AutoValue.Builder
+    public abstract static class Builder {
+        public abstract Builder price(int price);
+        
+        public abstract Builder title(String title);
+        
+        public abstract Review build();
+    }
 }

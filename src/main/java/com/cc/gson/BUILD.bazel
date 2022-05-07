@@ -1,12 +1,47 @@
 #load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 java_library(
+    name = "javax_annotation_api",
+    visibility = ["//visibility:public"],
+    exports = [
+        "@maven//:javax_annotation_javax_annotation_api",
+    ],
+    runtime_deps = [
+    ],
+)
+
+java_plugin(
+    name = "autovalue_plugin",
+    processor_class = "com.google.auto.value.processor.AutoValueProcessor",
+    deps = [
+        ":javax_annotation_api",
+        "@maven//:com_google_auto_value_auto_value",
+    ],
+)
+
+java_library(
+    name = "autovalue",
+    exported_plugins = [
+        ":autovalue_plugin",
+    ],
+    exports = [
+        "@maven//:com_google_auto_value_auto_value",
+        "@maven//:com_google_auto_value_auto_value_annotations",
+    ],
+)
+
+java_library(
     name = "java-maven-lib",
     srcs = glob([
         "*.java",
     ]),
     deps = [
+        ":autovalue",
+        "@maven//:com_google_auto_value_auto_value",
+        "@maven//:com_google_auto_value_auto_value_annotations",
+        "@maven//:com_google_auto_value_auto_value_parent",
         "@maven//:com_google_code_gson_gson",
+        "@maven//:com_google_guava_guava",
         "@maven//:com_google_inject_guice",
     ],
 )
