@@ -10,7 +10,7 @@ java_library(
 )
 
 java_binary(
-    name = "printer",
-    main_class = "com.cc.guice.printer.App",
+    name = "helloconstructor",
+    main_class = "com.cc.guice.helloconstructor.HelloConstructor",
     runtime_deps = [":java-maven-lib"],
 )

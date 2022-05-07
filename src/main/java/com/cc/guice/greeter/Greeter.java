@@ -6,6 +6,7 @@ public class Greeter {
   private final String message;
   private final int count;
   
+  // @Inject tells the guice provide
   @Inject
   public Greeter(@Message String message, @Count int count) {
     this.message = message;
